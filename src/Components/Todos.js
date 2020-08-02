@@ -1,15 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-
-
-function Todos() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h2>This is Todos App</h2>
-      </header>
-    </div>
-  );
+export default class Todos extends Component {
+  render() {
+    return this.props.todos.map((todos)=>(
+      <h4>{todos.title}</h4>
+    ))
+  }
 }
-
-export default Todos;

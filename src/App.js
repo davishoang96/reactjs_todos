@@ -9,22 +9,22 @@ export class App extends Component {
       {
         id: "1",
         title: "Clean the floor",
-        done: "False"
+        completed: false
       },
       {
         id: "2",
         title: "Ask for Phd Schoolarship",
-        done: "True"
+        completed: true
       },
       {
         id: "3",
         title: "Send email to Brianna",
-        done: "False"
+        completed: false
       },
       {
         id: "4",
         title: "Complete the paragraph",
-        done: "False"
+        completed: false
       }
     ]
   }

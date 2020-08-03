@@ -14,7 +14,7 @@ export class App extends Component {
       {
         id: "2",
         title: "Ask for Phd Schoolarship",
-        completed: true
+        completed: false
       },
       {
         id: "3",
@@ -41,6 +41,10 @@ export class App extends Component {
     )})
   }
 
+  delTodo = (id) => {
+    this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id )]})
+  }
+
 
   render() {
     console.log(this.state.todos)
@@ -48,7 +52,7 @@ export class App extends Component {
       
       <div className="App">
         <header className="App-header">
-          <Todos todos={this.state.todos} markCompleted={this.markCompleted} />
+          <Todos todos={this.state.todos} markCompleted={this.markCompleted} delTodo={this.delTodo} />
         </header>
       </div>
     )

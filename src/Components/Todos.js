@@ -15,5 +15,9 @@ export default class Todos extends Component {
 // To run typechecking on the props for a component, 
 // you can assign the special propTypes
 Todos.propTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  markCompleted: PropTypes.func.isRequired,
+  delTodo: PropTypes.func.isRequired,
+  AddTodo: PropTypes.func.isRequired,
+
 }

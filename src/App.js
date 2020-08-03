@@ -35,20 +35,22 @@ export class App extends Component {
 
   // Delete todo item
   delTodo = (id) => {
-    this.setState({
-      todos: [...this.state.todos.filter((todo) => todo.id !== id)],
-    });
+
+    Axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then(res=> this.setState({
+        todos: [...this.state.todos.filter((todo) => todo.id !== id)],
+      }))
+    
   };
 
   // Add todo item
   AddTodo = (title) => {
-    const newTodo = {
-      id: uuid(),
-      title: title,
-      completed: false,
-    };
-    this.setState({ todos: [...this.state.todos, newTodo] });
-  };
+    Axios.post('https://jsonplaceholder.typicode.com/todos', {
+      title,
+      completed: false
+    })
+    .then(res => this.setState({ todos: [...this.state.todos, res.data] }))
+  }
 
   render() {
     console.log(this.state.todos);

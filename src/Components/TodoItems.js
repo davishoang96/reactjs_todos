@@ -14,9 +14,14 @@ export default class TodoItems extends Component {
   }
 
   render() {
+    const { id,title } = this.props.todo;
     return(
       <div style={this.getStyle()}>
-         <h3>{this.props.todo.title}</h3>
+        <h3>
+          {/* check Todos js  */}
+          <input type="checkbox" onChange={this.props.markCompleted.bind(this,id)} /> {''}
+          {title}
+        </h3>
       </div>
     )
   }

@@ -29,13 +29,19 @@ export class App extends Component {
     ]
   }
 
+
+  markCompleted = (id) => {
+    console.log(id)
+  }
+
+
   render() {
     console.log(this.state.todos)
     return (
       
       <div className="App">
         <header className="App-header">
-          <Todos todos={this.state.todos} />
+          <Todos todos={this.state.todos} markCompleted={this.markCompleted} />
         </header>
       </div>
     )

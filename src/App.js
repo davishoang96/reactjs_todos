@@ -29,9 +29,16 @@ export class App extends Component {
     ]
   }
 
-
+  // toggle completion for todo list item
   markCompleted = (id) => {
-    console.log(id)
+    this.setState({todos: this.state.todos.map(
+      todo => {
+        if (todo.id === id){
+          todo.completed = !todo.completed
+        }
+        return todo;
+      }
+    )})
   }
 
 

@@ -2,28 +2,30 @@ import React, { Component } from 'react';
 import Todos from './Components/Todos'
 import { render } from '@testing-library/react';
 import Header from './Components/layouts/Header'
+import AddTodo from './Components/AddTodo';
+import {v4 as uuid} from 'uuid';
 
 export class App extends Component {
 
   state = {
     todos: [
       {
-        id: "1",
+        id: uuid(),
         title: "Clean the floor",
         completed: false
       },
       {
-        id: "2",
+        id: uuid(),
         title: "Ask for Phd Schoolarship",
         completed: false
       },
       {
-        id: "3",
+        id: uuid(),
         title: "Send email to Brianna",
         completed: false
       },
       {
-        id: "4",
+        id: uuid(),
         title: "Complete the paragraph",
         completed: false
       }
@@ -42,8 +44,20 @@ export class App extends Component {
     )})
   }
 
+
+  // Delete todo item
   delTodo = (id) => {
     this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id )]})
+  }
+
+  // Add todo item
+  AddTodo = (title) => {
+    const newTodo = {
+      id: uuid(),
+      title: title,
+      completed: false,
+    }
+    this.setState({todos: [...this.state.todos, newTodo]})
   }
 
 
@@ -54,7 +68,9 @@ export class App extends Component {
       <div className="App">
         <header className="App-header">
           <Header />
+          <AddTodo AddTodo={this.AddTodo} />
           <Todos todos={this.state.todos} markCompleted={this.markCompleted} delTodo={this.delTodo} />
+
         </header>
       </div>
     )

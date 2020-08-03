@@ -28,6 +28,23 @@
   color: #61dafb;
 }
 
+.container{
+  padding: 0 1rem;
+}
+
+.btn{
+  display: inline-block;
+  border: none;
+  background: gray;
+  color: white;
+  padding: 7px, 20px;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: cadetblue;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

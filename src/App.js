@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todos from './Components/Todos'
 import { render } from '@testing-library/react';
+import Header from './Components/layouts/Header'
 
 export class App extends Component {
 
@@ -52,6 +53,7 @@ export class App extends Component {
       
       <div className="App">
         <header className="App-header">
+          <Header />
           <Todos todos={this.state.todos} markCompleted={this.markCompleted} delTodo={this.delTodo} />
         </header>
       </div>

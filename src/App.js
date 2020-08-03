@@ -6,33 +6,21 @@ import Header from "./Components/layouts/Header";
 import AddTodo from "./Components/AddTodo";
 import { v4 as uuid } from "uuid";
 import About from "./Components/pages/About";
+import Axios from "axios";
 
 export class App extends Component {
   state = {
     todos: [
-      {
-        id: uuid(),
-        title: "Clean the floor",
-        completed: false,
-      },
-      {
-        id: uuid(),
-        title: "Ask for Phd Schoolarship",
-        completed: false,
-      },
-      {
-        id: uuid(),
-        title: "Send email to Brianna",
-        completed: false,
-      },
-      {
-        id: uuid(),
-        title: "Complete the paragraph",
-        completed: false,
-      },
+      
     ],
   };
 
+
+  componentDidMount(){
+    Axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=10`).then(res => 
+      this.setState({todos: res.data})
+    )
+  }
   // toggle completion for todo list item
   markCompleted = (id) => {
     this.setState({
